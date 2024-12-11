@@ -26,18 +26,6 @@ int main()
     // コマンドをシリアルポートに送信
     serialPuts(serial_port, command);
 
-    // 返信がある場合、読み取る
-    char response[256];
-    int index = 0;
-    while (serialDataAvail(serial_port))
-    {
-        response[index++] = serialGetchar(serial_port);
-        if (index >= sizeof(response) - 1)
-            break;
-    }
-    response[index] = '\0'; // 文字列の終端を追加
-    printf("Response: %s\n", response);
-
     // シリアルポートを閉じる
     serialClose(serial_port);
 
