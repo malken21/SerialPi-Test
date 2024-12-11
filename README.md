@@ -8,8 +8,10 @@ Raspberry Pi でシリアル通信のテスト用プログラム
 以下のコマンドをインストールしてください。
 
 ```sh
-sudo apt-get update
-sudo apt-get install wiringpi
+sudo apt update
+sudo apt dist-upgrade
+sudo apt autoremove
+sudo apt install wiringpi
 ```
 
 ## ビルド
