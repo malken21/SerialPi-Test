@@ -17,3 +17,9 @@ sudo apt-get install wiringpi
 ```sh
 gcc -o serial_test serial_test.c -lwiringPi
 ```
+
+## 利用可能なCOMポート表示コマンド
+
+```sh
+ls /dev/tty*
+```
