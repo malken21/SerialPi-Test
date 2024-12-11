@@ -28,11 +28,15 @@ int main()
 
     // 返信がある場合、読み取る
     char response[256];
-    if (serialDataAvail(serial_port))
+    int index = 0;
+    while (serialDataAvail(serial_port))
     {
-        serialGets(serial_port, response, sizeof(response));
-        printf("Response: %s\n", response);
+        response[index++] = serialGetchar(serial_port);
+        if (index >= sizeof(response) - 1)
+            break;
     }
+    response[index] = '\0'; // 文字列の終端を追加
+    printf("Response: %s\n", response);
 
     // シリアルポートを閉じる
     serialClose(serial_port);
